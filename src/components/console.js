@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import validateCommand from '../services/validateCommand'
 import {commands} from '../config'
-// i know it looks ugly know :(
+// i know it looks ugly now :(
 export default function Console({pos, setPos, direction, setDirection}) {
 
     const [cmd, setCmd] = useState('')
@@ -9,11 +9,11 @@ export default function Console({pos, setPos, direction, setDirection}) {
     const handleClick = () => {
         setCmd(validateCommand(cmd))
 
-        cmd.split('').forEach(char => {
+        cmd.split('').forEach((l, i) => {
             setTimeout(() => {
-                switch (char) {
+                switch (l) {
                 case commands.forward:
-                    setPos(handleForward(direction))
+                    setPos(prev => handleForward(direction, prev))
                     break
                 case commands.left:
                     setDirection(direction ? direction - 1 : 3)
@@ -21,13 +21,16 @@ export default function Console({pos, setPos, direction, setDirection}) {
                 case commands.right:
                     setDirection((direction + 1) % 4)
                     break
-            }
-            }, 1000)
-        })
+                }
+                }, 1000 * i)
+            })
     }
 
-    const handleForward = (direction) => {
-        const newPos = {...pos}
+
+
+    const handleForward = (direction, position) => {
+        const newPos = {...position}
+            console.log(newPos)
 
         switch (direction) {
             case 0:

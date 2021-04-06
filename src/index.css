@@ -35,7 +35,7 @@ body {
   position: absolute;
   width: 29px;
   height: 29px;
-  bottom: 0;
+  top: 0;
   left: 0;
   transition: transform 0.3s ease-in;
   border: 1px solid transparent;
