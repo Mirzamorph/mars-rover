@@ -5,8 +5,10 @@ import {defaultGridSize} from './config'
 export default function App() {
     return (
         <>
-            <Grid gridCount={defaultGridSize}/>
-            <div>Car</div>
+            <div className="container">
+                <Grid gridCount={defaultGridSize}/>
+                <div className="rover">Car</div>
+            </div>
             <div>Console</div>
         </>
     )

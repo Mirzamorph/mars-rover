@@ -7,12 +7,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.container {
+  position: relative;
+  width: max-content;
+  overflow: hidden;
+}
 
 .grid {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: max-content;
   border: 0.5px solid #000;
 }
 
@@ -25,4 +29,10 @@ body {
   width: 30px;
   height: 30px;
   border: 0.5px solid #000;
+}
+
+.rover {
+  position: absolute;
+  width: 30px;
+  height: 30px;
 }
