@@ -10,3 +10,5 @@ Redux would be a good choice there, it was my mistake that I didn’t use it.
 I wanted to refactor with “useReducer” hook, but didn’t have time left, “useState” hook doesn’t work comfortably with objects
 
 It was an interesting task, I’m not sure it looked as a Mars rover after all :)
+
+Tomorrow I will make some refactoring, as I would like to see this task finished properly. Please have it in mind if you check results later
