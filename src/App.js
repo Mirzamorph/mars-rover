@@ -4,19 +4,24 @@ import {defaultGridSize, defaultRoverDirection, defaultRoverPosition} from './co
 import Console from './components/console'
 import Rover from './components/rover'
 
+
+// I should have used redux here but i have no time now
+const intialState = {
+    position: defaultRoverPosition,
+    direction: defaultRoverDirection
+}
+
 export default function App() {
 
-    const [pos, setPos] = useState(defaultRoverPosition)
-    const [direction, setDirection] = useState(defaultRoverDirection)
+    const [pos, setPos] = useState(intialState)
 
     return (
         <>
             <div className="container">
                 <Grid gridCount={defaultGridSize}/>
-                <Rover pos={pos} directionDeg={direction}/>
+                <Rover pos={pos} />
             </div>
-            <button onClick={() => setPos({x: 5, y: 8})}>click</button>
-            <Console pos={pos} setPos={setPos} direction={direction} setDirection={setDirection}/>
+            <Console pos={pos} setPos={setPos} />
         </>
     )
 }

@@ -33,10 +33,19 @@ body {
 
 .rover {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 29px;
   height: 29px;
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in;
   border: 1px solid transparent;
+}
+
+.rover img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }

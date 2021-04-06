@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import validateCommand from '../services/validateCommand'
 import {commands} from '../config'
 // i know it looks ugly now :(
-export default function Console({pos, setPos, direction, setDirection}) {
+export default function Console({pos, setPos}) {
 
     const [cmd, setCmd] = useState('')
 
@@ -13,13 +13,23 @@ export default function Console({pos, setPos, direction, setDirection}) {
             setTimeout(() => {
                 switch (l) {
                 case commands.forward:
-                    setPos(prev => handleForward(direction, prev))
+                    setPos(getNewPosition)
                     break
                 case commands.left:
-                    setDirection(direction => direction ? direction - 1 : 3)
+                    setPos(prev => {
+                        return {
+                            direction: prev.direction ? prev.direction - 1 : 3,
+                            position: prev.position
+                        }
+                    })
                     break
                 case commands.right:
-                    setDirection(direction => (direction + 1) % 4)
+                    setPos(prev => {
+                        return {
+                            direction: (prev.direction + 1) % 4,
+                            position: prev.position
+                        }
+                    })
                     break
                 }
                 }, 1000 * i)
@@ -28,9 +38,8 @@ export default function Console({pos, setPos, direction, setDirection}) {
 
 
 
-    const handleForward = (direction, position) => {
+    const getNewPosition = ({direction, position}) => {
         const newPos = {...position}
-            console.log(newPos)
 
         switch (direction) {
             case 0:
@@ -46,8 +55,7 @@ export default function Console({pos, setPos, direction, setDirection}) {
                 newPos.y--
                 break
         }
-
-        return newPos
+        return {direction, position: newPos}
     }
 
     return (
