@@ -4,7 +4,7 @@ export const defaultRoverPosition = {
     y: 0
 }
 
-export const defaultRoverDirection = 0 // it's all about degrees, so it can be 0, 90, 180, 360
+export const defaultRoverDirection = 0 //0-north  1-east 2-south 3- west
 
 export const commands = {
     forward: 'f',
