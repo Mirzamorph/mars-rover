@@ -4,4 +4,4 @@ export const defaultRoverPosition = {
     y: 0
 }
 
-export const defaultRoverDirection = 0
+export const defaultRoverDirection = 90 // it's all about degrees, so it can be 0, 90, 180, 360

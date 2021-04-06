@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Rover({pos}) {
+export default function Rover({pos, directionDeg}) {
 
     const styles = {
-        transform: `translate(${pos.x * 100}%, ${pos.y * 100}%)`
+        transform: `translate(${pos.x * 100}%, -${pos.y * 100}%) rotate(${directionDeg}deg)`
     }
 
     return (
