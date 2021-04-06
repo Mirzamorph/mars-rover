@@ -16,10 +16,10 @@ export default function Console({pos, setPos, direction, setDirection}) {
                     setPos(prev => handleForward(direction, prev))
                     break
                 case commands.left:
-                    setDirection(direction ? direction - 1 : 3)
+                    setDirection(direction => direction ? direction - 1 : 3)
                     break
                 case commands.right:
-                    setDirection((direction + 1) % 4)
+                    setDirection(direction => (direction + 1) % 4)
                     break
                 }
                 }, 1000 * i)
