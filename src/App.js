@@ -16,7 +16,7 @@ export default function App() {
                 <Grid gridCount={defaultGridSize}/>
                 <Rover pos={pos} directionDeg={direction}/>
             </div>
-            <button onClick={() => setPos({x: 2, y: 3})}>click</button>
+            <button onClick={() => setPos({x: 4, y: 5})}>click</button>
             <Console setPos={setPos} setDirection={setDirection}/>
         </>
     )
