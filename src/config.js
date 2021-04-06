@@ -1,6 +1,6 @@
 export const defaultGridSize = 10
 export const defaultRoverPosition = {
-    x: 0,
+    x: 2,
     y: 0
 }
 

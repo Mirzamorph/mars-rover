@@ -35,4 +35,6 @@ body {
   position: absolute;
   width: 30px;
   height: 30px;
+  bottom: 1px;
+  left: 3px;
 }

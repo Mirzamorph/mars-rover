@@ -1,15 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Grid from './components/grid'
-import {defaultGridSize} from './config'
+import {defaultGridSize, defaultRoverPosition} from './config'
+import Console from './components/console'
+import Rover from './components/rover'
 
 export default function App() {
+
+    const [pos, setPos] = useState(defaultRoverPosition)
+
+
     return (
         <>
             <div className="container">
                 <Grid gridCount={defaultGridSize}/>
-                <div className="rover">Car</div>
+                <Rover pos={pos}/>
             </div>
-            <div>Console</div>
+            <Console/>
         </>
     )
 }
