@@ -12,8 +12,11 @@ const optionSlice = createSlice({
     name: 'option',
     initialState,
     reducers: {
-        setPos(state, action) {
-            state.position = action.payload
+        setX(state, action) {
+          state.position.x = action.payload
+        },
+        setY(state, action) {
+          state.position.y = action.payload
         },
         turnLeft(state) {
             state.direction--
@@ -24,7 +27,7 @@ const optionSlice = createSlice({
     }
 })
 
-export const {setPos, turnLeft, turnRight} = optionSlice.actions
+export const {setX, setY, turnLeft, turnRight} = optionSlice.actions
 
 
 export default optionSlice.reducer
