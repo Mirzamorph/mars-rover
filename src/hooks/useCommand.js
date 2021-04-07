@@ -1,30 +1,33 @@
-import React from 'react'
 import {commands} from '../config'
-import {useDispatch, useSelector} from 'react-redux'
-import {turnLeft, turnRight} from '../app/reducers/optionReducer'
-import useMove from './useMove'
+import {useSelector} from 'react-redux'
+import calculatePosition from '../services/calculatePosition'
 
 export default function useCommand() {
 
     const {position, direction} = useSelector(state => state.option)
-    const dispatch = useDispatch()
-    const moveForward = useMove()
-    console.log('init')
 
-    return function(cmd) {
-        console.log('running')
-        switch (cmd) {
+    console.log(position, direction)
+    return function(command) {
+
+        const newOption = {
+            position: {...position},
+            direction: direction
+        }
+
+        switch (command) {
             case commands.forward:
-                moveForward(position, direction)
+                newOption.position = calculatePosition(position, direction)
                 break
             case commands.left:
-                dispatch(turnLeft())
+                newOption.direction--
                 break
             case commands.right:
-                dispatch(turnRight())
+                newOption.direction++
                 break
             default:
                 break
         }
+
+        return newOption
     }
 }
