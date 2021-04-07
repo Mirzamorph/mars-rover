@@ -6,7 +6,6 @@ export default function useCommand() {
 
     const {position, direction} = useSelector(state => state.option)
 
-    console.log(position, direction)
     return function(command) {
 
         const newOption = {

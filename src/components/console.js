@@ -19,15 +19,16 @@ export default function Console() {
         }
 
         const movementData = getMovement(commands.current[0])
-        console.log(movementData)
+
         setTimeout(() => {
             dispatch(setAll(movementData))
         }, 400)
+
         commands.current = commands.current.substr(1)
+
     }, [getMovement, dispatch])
 
     const handleClick = () => {
-    console.log('click')
         setValue(validateCommand(value))
         commands.current = value
         setDisable(true)
